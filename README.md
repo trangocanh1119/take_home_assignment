@@ -90,6 +90,10 @@ SUCCESS — File content verified!
 
 C:\Users\ ... \Documents\desktop_test.txt
 
+### Evidence of execution
+
+![Notepad Result](./Assets/notepad-result.png)
+
 ## Task 2 – Web Automation (Cypress)
 ### Objective
 Automate the following scenario on https://rocscience.com:
@@ -176,3 +180,6 @@ This confirms:
 
 - Validation is not UI-dependent
 
+### Evidence of execution
+
+![Cypress Execution Screenshot](./Assets/cypress-login.png)
