@@ -42,4 +42,16 @@ describe('Rocscience Login Navigation Test', () => {
     })
   })
 
+  it('API validation for invalid login credentials', () => {
+    cy.request({
+      method: 'POST',
+      url: 'https://auth.rocscience.com/u/login',
+      failOnStatusCode: false,
+      body: {
+        username: 'invalid@test.com',
+        password: 'wrongpassword'
+      }
+    }).its('status').should('be.oneOf', [400, 401])
+  })
+
 })
