@@ -69,21 +69,110 @@ Prerequisites
 
 Install Dependencies - If not already initialized:
 
-**npm** init -y
+ ```` npm init -y ````
 
 (No external dependencies required.)
 
 Run Desktop Test:
 
-**node** notepad-ps.js
+```` node notepad-ps.js ````
 
 ### Expected Output
 Step 1: Creating file...
+
 Step 4: Opening file in Notepad...
+
 Verifying content...
+
 SUCCESS — File content verified!
 
 ### The generated file is saved to:
 
-C:\Users\Speedcom\Documents\desktop_test.txt
+C:\Users\ ... \Documents\desktop_test.txt
+
+## Task 2 – Web Automation (Cypress)
+### Objective
+Automate the following scenario on https://rocscience.com:
+
+- Visit homepage
+
+- Accept cookies policy
+
+- Click profile/user icon
+
+- Click “Log in to RocPortal”
+
+Validate:
+
+- Redirect to authentication domain
+
+- Username field visible
+
+- Password field visible
+
+- Continue button visible and enabled
+
+### Framework Selection
+Cypress was selected because:
+
+- Built-in automatic retries
+
+- Clear syntax
+
+- Native support for cross-origin testing (via cy.origin())
+
+### How to run task 2
+Install Dependencies:
+
+```` npm install cypress ````
+
+Open Cypress: 
+
+- UI Mode (recommended for first run)
+
+```` npx cypress open ````
+
+Select E2E Testing configuration if prompted.
+
+- Headless mode
+
+```` npx cypress run ````
+
+## Task 2B – Bonus: API Invalid Login Validation (Approach)
+
+### Manual Validation Approach
+
+- Open browser DevTools (F12)
+
+- Navigate to Network tab
+
+- Attempt invalid login 
+
+- Identify authentication POST request
+
+Validate:
+
+- Status code (401 or 400)
+
+- Error message in response body
+
+- No authentication token returned
+
+-> This ensures validation at service level rather than UI only.
+
+### Automated Validation Approach
+
+An automated test case was implemented using cy.request():
+
+- Sends invalid credentials to authentication endpoint
+
+- Asserts correct failure status (400 or 401)
+
+This confirms:
+
+- Backend rejects invalid credentials
+
+- Authentication flow is secure
+
+- Validation is not UI-dependent
 
